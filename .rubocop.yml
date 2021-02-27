@@ -1,0 +1,11 @@
+require:
+  - rubocop-rails
+  - rubocop-rake
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - './spec/spec_helper.rb'
+    - './db/**/**'
+    - './bin/**/**'
