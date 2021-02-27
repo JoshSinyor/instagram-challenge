@@ -6,6 +6,7 @@ require:
 AllCops:
   NewCops: enable
   Exclude:
-    - './spec/spec_helper.rb'
-    - './db/**/**'
     - './bin/**/**'
+    - './db/**/**'
+    - './node_modules/**/**'
+    - './spec/spec_helper.rb'
