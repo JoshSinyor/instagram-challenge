@@ -1,0 +1,60 @@
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+
+  <style>
+    #search-btn {
+      background-color: inherit;
+      border: none;
+    }
+
+    .bi-search {
+      color: rgba(0,0,0,.55);
+    }
+
+    .bi-search:hover {
+      color: #212529;
+    }
+  </style>
+</head>
+
+<nav class="navbar navbar-expand navbar-light bg-light" style="min-width: 30rem">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Hamstergram</a>
+
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size: 1.5rem; margin-left: auto!important; margin-right: 0.5rem!important">
+      <li class="nav-item">
+        <a class="nav-link" aria-current="/" href="/"><i class="bi bi-house"></i></a>
+        <!-- <i class="bi bi-house-fill"></i> -->
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" aria-current="upload" href="upload"><i class="bi bi-plus-square"></i></a>
+        <!-- <i class="bi bi-plus-square-fill"></i> -->
+      </li>
+
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person"></i>
+            <!-- <i class="bi bi-person-fill"></i> -->
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li style="margin-left: 0.5rem; margin-right: 0.5rem;">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              <div class="input-group mb-3" style="margin-bottom: 0.5rem!important">
+                <input type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+              </div>
+            </li>
+            <li><a class="dropdown-item" href="#">Login</a></li>
+            <li><a class="dropdown-item" href="#">Register</a></li>
+          </ul>
+      </li>
+    </ul>
+
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button type="submit" id="search-btn"><i class="bi bi-search"></i></button>
+    </form>
+
+  </div>
+</nav>
