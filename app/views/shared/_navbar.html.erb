@@ -17,13 +17,20 @@
 
 <nav class="navbar navbar-expand navbar-light bg-light" style="min-width: 30rem">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">Hamstergram</a>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      Hamstergram
+    <% end %>
+
     <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size: 1.5rem; margin-left: auto!important; margin-right: 0.5rem!important">
       <li class="nav-item">
-        <a class="nav-link" href="/" id="home-btn"><i class="bi bi-house"></i></a>
+        <%= link_to root_path, class: "nav-link", id: "home-btn" do %>
+          <i class="bi bi-house"></i>
+        <% end %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="upload" id="upload-btn"><i class="bi bi-plus-square"></i></a>
+        <%= link_to root_path, class: "nav-link", id: "upload-btn" do %>
+          <i class="bi bi-plus-square"></i>
+        <% end %>
       </li>
       <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -38,8 +45,16 @@
                 <input type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
               </div>
             </li>
-            <li><a class="dropdown-item" href="#">Login</a></li>
-            <li><a class="dropdown-item" href="#">Register</a></li>
+            <li>
+              <%= link_to root_path, class: "dropdown-item", id: "login-logout-btn" do %>
+                Login
+              <% end %>
+            </li>
+            <li>
+              <%= link_to root_path, class: "dropdown-item", id: "register-btn" do %>
+                Register
+              <% end %>
+            </li>
           </ul>
       </li>
     </ul>
