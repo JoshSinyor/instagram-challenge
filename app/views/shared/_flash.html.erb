@@ -1,0 +1,22 @@
+<head>
+  <style>
+  </style>
+</head>
+
+<% if flash[:login] %>
+  <div class="alert alert-success mt-4">
+    <%= flash[:login] %>
+  </div>
+<% end %>
+
+<% if flash[:logout] %>
+  <div class="alert alert-success mt-4">
+    <%= flash[:logout] %>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="alert alert-danger mt-4">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
