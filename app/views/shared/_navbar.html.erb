@@ -53,16 +53,14 @@
             <% end %>
             <li>
               <% if session[:user_id] %>
-                <%= button_to "Log Out", logout_path, method: :delete, class: "dropdown-item" %>
+                <%= button_to "Sign Out", sign_out_path, method: :delete, class: "dropdown-item" %>
               <% else %>
-                <%= button_to "Log In", logout_path, method: :delete, class: "dropdown-item" %>
+                <%= button_to "Sign In", sign_out_path, method: :delete, class: "dropdown-item" %>
               <% end %>
             </li>
             <% if !session[:user_id] %>
               <li>
-                <%= link_to sign_up_path, class: "dropdown-item", id: "register-btn" do %>
-                  Register
-                <% end %>
+                <%= link_to "Sign Up", sign_up_path, class: "dropdown-item" %>
               </li>
             <% end %>
           </ul>
@@ -74,3 +72,10 @@
     </form>
   </div>
 </nav>
+
+
+<%= form_with url: sign_in_path do |form| %>
+  <%= form.text_field :email, class: "form-control", placeholder: "e-Mail" %>
+  <%= form.password_field :password, class: "form-control", placeholder: "Password" %>
+  <%= form.submit "Sign In", class: "dropdown-item" %>
+<% end %>
