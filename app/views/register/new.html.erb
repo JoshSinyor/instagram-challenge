@@ -1,36 +1,51 @@
+<head>
+  <style>
+    #register-container {
+      min-width: 34rem;
+      max-width: 44rem;
+      margin: auto;
+      padding: 2rem;
+      border: 0.05rem solid black;
+      border-radius: 1rem;
+    }
+  </style>
+</head>
+
 <h1>Sign Up</h1>
 
-<form>
-  <%= form_with model: @user, url: register_path do |form| %>
-    <div class="mb-3 row">
-      <div class="col">
-        <%= form.label :first_name %>
-        <%= form.text_field :first_name, class: "form-control", placeholder: "Enter First Name" %>
+<div class="container" id="register-container">
+  <form>
+    <%= form_with model: @user, url: register_path do |form| %>
+      <div class="row mb-3 col-sm">
+        <div class="col">
+          <%= form.label :first_name %>
+          <%= form.text_field :first_name, class: "form-control", placeholder: "Enter First Name" %>
+        </div>
+        <div class="col">
+          <%= form.label :last_name %>
+          <%= form.text_field :last_name, class: "form-control", placeholder: "Enter Surname" %>
+        </div>
       </div>
-      <div class="col">
-        <%= form.label :last_name %>
-        <%= form.text_field :last_name, class: "form-control", placeholder: "Enter Surname" %>
+      <div class="mb-3">
+        <%= form.label :username %>
+        <%= form.text_field :username, class: "form-control", placeholder: "Enter Username" %>
       </div>
-    </div>
-    <div class="mb-3">
-      <%= form.label :username %>
-      <%= form.text_field :username, class: "form-control", placeholder: "Enter Username" %>
-    </div>
-    <div class="mb-3">
-      <%= form.label :email %>
-      <%= form.text_field :email, class: "form-control", placeholder: "Enter e-Mail Address" %>
-    </div>
-    <div class="mb-3 row">
-      <%= form.label :password %>
-      <div class="col">
-        <%= form.password_field :password, class: "form-control", placeholder: "Enter New Password" %>
+      <div class="mb-3">
+        <%= form.label :email %>
+        <%= form.text_field :email, class: "form-control", placeholder: "Enter e-Mail Address" %>
       </div>
-      <div class="col">
-        <%= form.password_field :password_confirmation, class: "form-control", placeholder: "Repeat New Password" %>
+      <div class="row mb-3">
+        <%= form.label :password %>
+        <div class="col">
+          <%= form.password_field :password, class: "form-control", placeholder: "Enter New Password" %>
+        </div>
+        <div class="col">
+          <%= form.password_field :password_confirmation, class: "form-control", placeholder: "Repeat New Password" %>
+        </div>
       </div>
-    </div>
-    <div class="mb-3">
-      <%= form.submit "Sign Up", class: "btn btn-light" %>
-    </div>
-  <% end %>
-</form>
+      <div style="text-align: center">
+        <%= form.submit "Sign Up", class: "btn btn-light" %>
+      </div>
+    <% end %>
+  </form>
+</div>

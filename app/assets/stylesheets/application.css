@@ -20,7 +20,7 @@
 }
 
 #main-container {
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 #content-wrap {
@@ -36,4 +36,5 @@
 
 h1 {
   text-align: center;
+  margin-bottom: 2rem;
 }
