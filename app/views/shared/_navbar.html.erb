@@ -34,7 +34,7 @@
       </li>
       <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <% if session[:user_id] %>
+            <% if Current.user %>
               <i class="bi bi-person-fill" style="color: #212529"></i>
             <% else %>
               <i class="bi bi-person"></i>
@@ -42,7 +42,15 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <% if !session[:user_id] %>
+            <% if Current.user %>
+              <li class="dropdown-item">
+                @<%= Current.user.username %>
+              </li>
+              <div class="dropdown-divider"></div>
+              <li>
+                <%= button_to "Sign Out", sign_out_path, method: :delete, class: "dropdown-item" %>
+              </li>
+            <% else %>
               <%= form_with url: sign_in_path do |form| %>
                 <li style="margin-left: 0.5rem; margin-right: 0.5rem;">
                   <div class="input-group mb-3">
@@ -55,16 +63,8 @@
                 <li>
                   <%= form.submit "Sign In", class: "dropdown-item" %>
                 </li>
-                <div class="dropdown-divider"></div>
               <% end %>
-            <% end %>
-
-            <% if session[:user_id] %>
-              <li>
-                <%= button_to "Sign Out", sign_out_path, method: :delete, class: "dropdown-item" %>
-              </li>
-            <% end %>
-            <% if !session[:user_id] %>
+              <div class="dropdown-divider"></div>
               <li>
                 <%= link_to "Sign Up", sign_up_path, class: "dropdown-item" %>
               </li>
