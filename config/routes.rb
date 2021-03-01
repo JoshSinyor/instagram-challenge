@@ -9,4 +9,5 @@ Rails.application.routes.draw do
 
   get 'sign_up', to: 'register#new'
   post 'sign_up', to: 'register#create'
+  delete 'logout', to: 'sessions#destroy'
 end

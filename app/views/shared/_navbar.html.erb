@@ -52,12 +52,10 @@
               </li>
             <% end %>
             <li>
-              <%= link_to root_path, class: "dropdown-item", id: "login-logout-btn" do %>
-                <% if session[:user_id] %>
-                  Logout
-                <% else %>
-                  Login
-                <% end %>
+              <% if session[:user_id] %>
+                <%= button_to "Log Out", logout_path, method: :delete, class: "dropdown-item" %>
+              <% else %>
+                <%= button_to "Log In", logout_path, method: :delete, class: "dropdown-item" %>
               <% end %>
             </li>
             <% if !session[:user_id] %>
