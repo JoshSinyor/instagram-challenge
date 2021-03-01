@@ -12,12 +12,22 @@
     .bi-search:hover {
       color: #212529;
     }
+
+    @font-face {
+        font-family: 'logo-font';
+        src: asset_path('july_seventh_regular.otf');
+    }
+
+    .navbar-brand {
+      font-family: asset_path('july_seventh_regular.otf');
+    }
   </style>
 </head>
 
 <nav class="navbar navbar-expand navbar-light bg-light" style="min-width: 30rem">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag('icon.svg', height: "50rem") %>
       Hamstergram
     <% end %>
 
@@ -27,11 +37,41 @@
           <i class="bi bi-house"></i>
         <% end %>
       </li>
-      <li class="nav-item">
-        <%= link_to root_path, class: "nav-link", id: "upload-btn" do %>
-          <i class="bi bi-plus-square"></i>
-        <% end %>
-      </li>
+
+      <% if Current.user %>
+        <li class="nav-item">
+          <%= link_to root_path, class: "nav-link", id: "inbox-btn" do %>
+            <i class="bi bi-envelope"></i>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to root_path, class: "nav-link", id: "likes-btn" do %>
+            <i class="bi bi-heart"></i>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to root_path, class: "nav-link", id: "upload-btn" do %>
+            <i class="bi bi-camera"></i>
+          <% end %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to root_path, class: "nav-link disabled", id: "inbox-btn" do %>
+            <i class="bi bi-envelope"></i>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to root_path, class: "nav-link disabled", id: "likes-btn" do %>
+            <i class="bi bi-heart"></i>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to root_path, class: "nav-link disabled", id: "upload-btn" do %>
+            <i class="bi bi-camera"></i>
+          <% end %>
+        </li>
+      <% end %>
+
       <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <% if Current.user %>
