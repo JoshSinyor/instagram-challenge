@@ -35,29 +35,35 @@
       <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <% if session[:user_id] %>
-              <i class="bi bi-person" style="color: #212529"></i>
+              <i class="bi bi-person-fill" style="color: #212529"></i>
             <% else %>
               <i class="bi bi-person"></i>
             <% end %>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
             <% if !session[:user_id] %>
-              <li style="margin-left: 0.5rem; margin-right: 0.5rem;">
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                <div class="input-group mb-3" style="margin-bottom: 0.5rem!important">
-                  <input type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
-                </div>
+              <%= form_with url: sign_in_path do |form| %>
+                <li style="margin-left: 0.5rem; margin-right: 0.5rem;">
+                  <div class="input-group mb-3">
+                    <%= form.text_field :email, class: "form-control", placeholder: "e-Mail" %>
+                  </div>
+                  <div class="input-group mb-3" style="margin-bottom: 0.5rem!important">
+                    <%= form.password_field :password, class: "form-control", placeholder: "Password" %>
+                  </div>
+                </li>
+                <li>
+                  <%= form.submit "Sign In", class: "dropdown-item" %>
+                </li>
+                <div class="dropdown-divider"></div>
+              <% end %>
+            <% end %>
+
+            <% if session[:user_id] %>
+              <li>
+                <%= button_to "Sign Out", sign_out_path, method: :delete, class: "dropdown-item" %>
               </li>
             <% end %>
-            <li>
-              <% if session[:user_id] %>
-                <%= button_to "Sign Out", sign_out_path, method: :delete, class: "dropdown-item" %>
-              <% else %>
-                <%= button_to "Sign In", sign_out_path, method: :delete, class: "dropdown-item" %>
-              <% end %>
-            </li>
             <% if !session[:user_id] %>
               <li>
                 <%= link_to "Sign Up", sign_up_path, class: "dropdown-item" %>
@@ -72,10 +78,3 @@
     </form>
   </div>
 </nav>
-
-
-<%= form_with url: sign_in_path do |form| %>
-  <%= form.text_field :email, class: "form-control", placeholder: "e-Mail" %>
-  <%= form.password_field :password, class: "form-control", placeholder: "Password" %>
-  <%= form.submit "Sign In", class: "dropdown-item" %>
-<% end %>

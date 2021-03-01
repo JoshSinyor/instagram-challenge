@@ -7,10 +7,10 @@ Rails.application.routes.draw do
 
   get 'about', to: 'about#index', as: :about
 
-  # get 'sign_up', to: 'register#new'
+  get 'sign_up', to: 'register#new'
   post 'sign_up', to: 'register#create'
 
-  get 'sign_in', to: 'sessions#new'
+  # get 'sign_in', to: 'sessions#new'
   post 'sign_in', to: 'sessions#create'
 
   delete 'sign_out', to: 'sessions#destroy'
