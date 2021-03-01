@@ -4,9 +4,8 @@
 class User < ApplicationRecord
   has_secure_password
 
-  validates :email, presence: true, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: 'E-mail address invalid.' },
-                    uniqueness: { case_sensitive: false, message: 'E-mail address already in use.' }
-  validates :password, confirmation: { message: 'Passwords do not match.' },
-                       length: { within: 8..20, message: 'Password must be between 8-20 characters.' }
-  validates :username, uniqueness: { case_sensitive: false, message: 'Username already in use.' }
+  validates :email, presence: true, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: 'address invalid.' },
+                    uniqueness: { case_sensitive: false, message: 'address already in use.' }
+  validates :password, length: { within: 8..20, message: 'must be between 8-20 characters.' }
+  validates :username, uniqueness: { case_sensitive: false, message: 'already in use.' }
 end

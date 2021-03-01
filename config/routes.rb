@@ -7,6 +7,6 @@ Rails.application.routes.draw do
 
   get 'about', to: 'about#index', as: :about
 
-  get 'sign_up', to: 'register#new', as: :register
-  post 'users', to: 'register#create'
+  get 'sign_up', to: 'register#new'
+  post 'sign_up', to: 'register#create'
 end

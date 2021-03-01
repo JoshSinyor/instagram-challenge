@@ -3,15 +3,9 @@
   </style>
 </head>
 
-<% if flash[:login] %>
+<% if flash[:notice] %>
   <div class="alert alert-success mt-4">
-    <%= flash[:login] %>
-  </div>
-<% end %>
-
-<% if flash[:logout] %>
-  <div class="alert alert-success mt-4">
-    <%= flash[:logout] %>
+    <%= flash[:notice] %>
   </div>
 <% end %>
 
