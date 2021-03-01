@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2021_02_28_221448) do
     t.string "pfp_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end
