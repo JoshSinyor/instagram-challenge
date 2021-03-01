@@ -34,27 +34,39 @@
       </li>
       <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-person"></i>
+            <% if session[:user_id] %>
+              <i class="bi bi-person" style="color: #212529"></i>
+            <% else %>
+              <i class="bi bi-person"></i>
+            <% end %>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li style="margin-left: 0.5rem; margin-right: 0.5rem;">
-              <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-              </div>
-              <div class="input-group mb-3" style="margin-bottom: 0.5rem!important">
-                <input type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
-              </div>
-            </li>
+            <% if !session[:user_id] %>
+              <li style="margin-left: 0.5rem; margin-right: 0.5rem;">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3" style="margin-bottom: 0.5rem!important">
+                  <input type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                </div>
+              </li>
+            <% end %>
             <li>
               <%= link_to root_path, class: "dropdown-item", id: "login-logout-btn" do %>
-                Login
+                <% if session[:user_id] %>
+                  Logout
+                <% else %>
+                  Login
+                <% end %>
               <% end %>
             </li>
-            <li>
-              <%= link_to sign_up_path, class: "dropdown-item", id: "register-btn" do %>
-                Register
-              <% end %>
-            </li>
+            <% if !session[:user_id] %>
+              <li>
+                <%= link_to sign_up_path, class: "dropdown-item", id: "register-btn" do %>
+                  Register
+                <% end %>
+              </li>
+            <% end %>
           </ul>
       </li>
     </ul>
