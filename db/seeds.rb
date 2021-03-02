@@ -17,7 +17,7 @@ end
 load_file('db/users_seed.csv')
 
 @file.each do |user|
-  User.create(({:email => user[0], :password => user[1], :password_confirmation => user[1], :first_name => user[2], :last_name => user[3], :username => user[4], :pfp_url => user[5]}))
+  User.create(({email: user[0], password: user[1], password_confirmation: user[1], first_name: user[2], last_name: user[3], username: user[4], pfp_url: user[5]}))
 end
 
 # Posts
