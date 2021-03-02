@@ -22,4 +22,16 @@ end
 
 # Posts
 
+# load_file('db/posts_seed.csv')
+
+# @file.each do |post|
+#   Post.create(({:author => post[0], :content => post[1]}))
+# end
+
 # Comments
+
+# load_file('db/reactions_seed.csv')
+
+# @file.each do |reaction|
+#   Reaction.create(({:user => reaction[0], :content => reaction[1]}))
+# end
