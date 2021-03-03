@@ -2,6 +2,8 @@
 
 # The RegisterController handles requests for user registrations and page(s).
 class RegisterController < ApplicationController
+  before_action :require_no_current_user
+
   def new
     @user = User.new
   end
