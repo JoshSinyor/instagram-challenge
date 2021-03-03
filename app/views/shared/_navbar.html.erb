@@ -10,13 +10,12 @@
     }
 
     .bi-search:hover {
-      color: #212529;
+      color: var(--navbar-light-hover-color);
     }
-
   </style>
 </head>
 
-<nav class="navbar navbar-expand navbar-light bg-light" style="min-width: 30rem">
+<nav class="navbar navbar-light navbar-expand bg-light" style="min-width: 30rem">
   <div class="container-fluid" >
     <%= link_to root_path, class: "navbar-brand logo logo-font" do %>
       <%= image_tag('icon.svg', height: "50rem") %>
@@ -25,7 +24,7 @@
 
     <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size: 1.5rem; margin-left: auto!important; margin-right: 0.5rem!important">
       <li class="nav-item">
-        <%= link_to root_path, class: "nav-link", id: "home-btn" do %>
+        <%= link_to root_path, class: "nav-link #{"active" if current_page?(root_path)}", id: "home-btn" do %>
           <i class="bi bi-house"></i>
         <% end %>
       </li>

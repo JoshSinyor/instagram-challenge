@@ -8,6 +8,11 @@
       border: 0.05rem solid black;
       border-radius: 1rem;
     }
+
+    .col-warning {
+      padding-left: calc(var(--bs-gutter-x)/ 2);
+      padding-right: calc(var(--bs-gutter-x)/ 2);
+    }
   </style>
 </head>
 
@@ -27,16 +32,15 @@
       <div class="row mb-3 col-sm text-capitalize">
         <div class="col">
           <%= form.label :first_name %>
-          <%= form.text_field :first_name, class: "form-control", placeholder: "Enter First Name" %>
+          <%= form.text_field :first_name, class: "form-control #{"alert-danger" if false}", placeholder: "Enter First Name" %>
         </div>
         <div class="col">
           <%= form.label :last_name %>
-          <%= form.text_field :last_name, class: "form-control", placeholder: "Enter Surname" %>
+          <%= form.text_field :last_name, class: "form-control #{"alert-danger" if false}", placeholder: "Enter Surname" %>
         </div>
       </div>
-
       <div class="mb-3 col-sm">
-        <div class="col alert-danger form-control" id="name-warning">
+        <div class="col alert-danger form-control" style="<%= "display: none" if true %>", id="name-warning">
           Warning!
         </div>
       </div>
@@ -44,38 +48,36 @@
       <div class="row mb-3 col-sm">
         <%= form.label :username %>
         <div class="col">
-          <%= form.text_field :username, class: "form-control", placeholder: "Enter Username" %>
+          <%= form.text_field :username, class: "form-control #{"alert-danger" if false}", placeholder: "Enter Username" %>
         </div>
-        <div class="col alert-danger form-control" id="username-warning">
-          Warning!
+        <div class="col col-warning" id="username-warning">
         </div>
       </div>
       <div class="row mb-3 col-sm">
         <%= form.label :email %>
         <div class="col">
-          <%= form.text_field :email, class: "form-control", placeholder: "Enter e-Mail Address" %>
+          <%= form.text_field :email, class: "col form-control #{"alert-danger" if false}", placeholder: "Enter e-Mail Address" %>
         </div>
-        <div class="col alert-danger form-control" id="email-warning">
-          Warning!
+        <div class="col col-warning" id="email-warning">
         </div>
       </div>
       <div class="row mb-3">
         <%= form.label :password %>
         <div class="col">
-          <%= form.password_field :password, class: "form-control", placeholder: "Enter New Password" %>
+          <%= form.password_field :password, class: "form-control #{"alert-danger" if false}", placeholder: "Enter New Password" %>
         </div>
         <div class="col">
-          <%= form.password_field :password_confirmation, class: "form-control", placeholder: "Repeat New Password" %>
+          <%= form.password_field :password_confirmation, class: "form-control #{"alert-danger" if false}", placeholder: "Repeat New Password" %>
         </div>
       </div>
       <div class="mb-3 col-sm">
-        <div class="col alert-danger form-control" id="password-warning">
+        <div class="col alert-danger form-control" style="<%= "display: none" if true %>", id="password-warning">
           Warning!
         </div>
       </div>
 
       <div style="text-align: center">
-        <%= form.submit "Sign Up", class: "btn btn-light", id: "sign-up-btn" %>
+        <%= form.submit "Sign Up", class: "btn btn-light #{"disabled" unless true}", id: "sign-up-btn" %>
       </div>
     <% end %>
 </div>
