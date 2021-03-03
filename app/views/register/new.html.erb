@@ -13,7 +13,7 @@
 
 <h1>Sign Up</h1>
 
-<div class="container" id="register-container">
+<div class="container bg-light" id="register-container">
     <%= form_with model: @user, url: sign_up_path do |form| %>
 
       <% if @user.errors.any? %>
@@ -24,7 +24,7 @@
         </div>
       <% end %>
 
-      <div class="row mb-3 col-sm">
+      <div class="row mb-3 col-sm text-capitalize">
         <div class="col">
           <%= form.label :first_name %>
           <%= form.text_field :first_name, class: "form-control", placeholder: "Enter First Name" %>
@@ -34,13 +34,30 @@
           <%= form.text_field :last_name, class: "form-control", placeholder: "Enter Surname" %>
         </div>
       </div>
-      <div class="mb-3">
-        <%= form.label :username %>
-        <%= form.text_field :username, class: "form-control", placeholder: "Enter Username" %>
+
+      <div class="mb-3 col-sm">
+        <div class="col alert-danger form-control" id="name-warning">
+          Warning!
+        </div>
       </div>
-      <div class="mb-3">
+
+      <div class="row mb-3 col-sm">
+        <%= form.label :username %>
+        <div class="col">
+          <%= form.text_field :username, class: "form-control", placeholder: "Enter Username" %>
+        </div>
+        <div class="col alert-danger form-control" id="username-warning">
+          Warning!
+        </div>
+      </div>
+      <div class="row mb-3 col-sm">
         <%= form.label :email %>
-        <%= form.text_field :email, class: "form-control", placeholder: "Enter e-Mail Address" %>
+        <div class="col">
+          <%= form.text_field :email, class: "form-control", placeholder: "Enter e-Mail Address" %>
+        </div>
+        <div class="col alert-danger form-control" id="email-warning">
+          Warning!
+        </div>
       </div>
       <div class="row mb-3">
         <%= form.label :password %>
@@ -51,8 +68,14 @@
           <%= form.password_field :password_confirmation, class: "form-control", placeholder: "Repeat New Password" %>
         </div>
       </div>
+      <div class="mb-3 col-sm">
+        <div class="col alert-danger form-control" id="password-warning">
+          Warning!
+        </div>
+      </div>
+
       <div style="text-align: center">
-        <%= form.submit "Sign Up", class: "btn btn-light" %>
+        <%= form.submit "Sign Up", class: "btn btn-light", id: "sign-up-btn" %>
       </div>
     <% end %>
 </div>
