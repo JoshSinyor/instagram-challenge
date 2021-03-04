@@ -12,11 +12,11 @@ class ApplicationController < ActionController::Base
   end
 
   def require_current_user
-    redirect_to root_path, alert: "Please log in first." unless Current.user
+    redirect_to root_path, alert: "Please sign in first." unless Current.user
   end
 
   def require_no_current_user
-    redirect_to root_path, alert: "Please log out first." if Current.user
+    redirect_to root_path, alert: "Please sign out first." if Current.user
   end
 
 end
